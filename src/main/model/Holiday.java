@@ -4,14 +4,12 @@ public class Holiday {
     private String name;
     private Date date;
     private Date endDate;
-    private boolean dayOff;
     private String how;
 
     public Holiday(String name, Date date, boolean dayOff, String how) {
         this.name = name;
         this.date = date;
         this.endDate = null;
-        this.dayOff = dayOff;
         this.how = how;
     }
 
@@ -19,7 +17,6 @@ public class Holiday {
         this.name = name;
         this.date = date;
         this.endDate = endDate;
-        this.dayOff = dayOff;
         this.how = how;
     }
 
@@ -31,10 +28,6 @@ public class Holiday {
         return date;
     }
 
-    public boolean isDayOff() {
-        return dayOff;
-    }
-
     public Date getEndDate() {
         return endDate;
     }
@@ -42,5 +35,4 @@ public class Holiday {
     public String getHow() {
         return how;
     }
-
 }
