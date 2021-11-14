@@ -33,7 +33,14 @@ public class Calendar {
                     }
                 }
             }
-
         }
+    }
+    // EFFECTS: returns a String representation of this
+    public String toPrint() {
+        String toPrint = "";
+        for (Holiday holiday : ordered) {
+            toPrint = toPrint.concat(holiday.toString() + "\n");
+        }
+        return toPrint;
     }
 }
