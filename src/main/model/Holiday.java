@@ -1,7 +1,5 @@
 package main.model;
 
-import java.util.Date;
-
 public class Holiday {
     private String name;
     private Date date;
