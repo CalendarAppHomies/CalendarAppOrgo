@@ -8,6 +8,7 @@ public class Calendar {
 
     public Calendar() {
         groupings = new ArrayList<>();
+        ordered = new ArrayList<>();
     }
 
     public ArrayList<Grouping> getGroupings() {
@@ -17,17 +18,22 @@ public class Calendar {
     // MODIFIES: this
     // EFFECTS: adds grouping to groupings
     //          adds holidays in grouping into ordered chronologically
-    public void add(Grouping grouping){
+    public void add(Grouping grouping) {
         groupings.add(grouping);
         if (ordered.isEmpty()) {
+            for (Holiday holiday : grouping.getHolidays()) {
+                holiday.addGrouping(grouping.getName());
+                ordered.add(holiday);
+            }
             ordered = grouping.getHolidays();
         } else {
-            for (Holiday holiday: grouping.getHolidays()) {
+            for (Holiday holiday : grouping.getHolidays()) {
                 Date date = holiday.getDate();
                 Date next;
-                for (int i = 0; i < ordered.size(); i ++) {
+                for (int i = 0; i < ordered.size(); i++) {
                     next = ordered.get(i).getDate();
                     if (date.before(next)) {
+                        holiday.addGrouping(grouping.getName());
                         ordered.add(i, holiday);
                         break;
                     }
@@ -35,12 +41,16 @@ public class Calendar {
             }
         }
     }
-    // EFFECTS: returns a String representation of this
-    public String toPrint() {
-        String toPrint = "";
-        for (Holiday holiday : ordered) {
-            toPrint = toPrint.concat(holiday.toString() + "\n");
+        // EFFECTS: returns a String representation of this
+        public String toPrint() {
+            String str = "";
+            for (Holiday holiday : ordered) {
+                str = str.concat(holiday.toString() + "\n");
+            }
+            return str;
         }
-        return toPrint;
+
+    public ArrayList<Holiday> getOrdered() {
+        return ordered;
     }
 }

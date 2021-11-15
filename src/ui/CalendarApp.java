@@ -22,28 +22,54 @@ public class CalendarApp {
         String input = "";
         do {
             input = scanner.nextLine();
+            System.out.println("\n");
             if (input.equals("1")) {
-                addGrouping();
+                addNewGrouping();
             } else if (input.equals("2")) {
                 viewCalendar();
             } else if (input.equals("3")) {
-                //deleteGrouping();
-            }
+                searchCalendar();
+        }
+            printMenu();
         } while (!input.equals("4"));
-        System.out.println("Goodbye, Thanks for using Calendar App");
+        System.out.println("Goodbye, Thanks for using Cultural App");
+    }
+
+    private void searchCalendar() {
+
+        System.out.println("\nPlease type the dates you would like to consider.");
+        System.out.println("\nPlease type the desired month (mm).");
+        String input = scanner.nextLine();
+        int month = Integer.parseInt(input);
+        System.out.println("\nPlease type the desired day (dd).");
+        String input2 = scanner.nextLine();
+        int day = Integer.parseInt(input2);
+
+        Boolean b = false;
+
+        for (Holiday h : calendar.getOrdered()) {
+            if (h.getDate().getMonth() == month && h.getDate().getDay() == day) {
+                System.out.println(h);
+                b = true;
+            }
+        }
+        if (!b) {
+            System.out.println("No Holidays were found!");
+        }
     }
 
     public void printMenu() {
-
-        System.out.println("Welcome to Calendar App");
+        System.out.println("\n");
+        System.out.println("Welcome to Cultural Calendar");
         System.out.println("Select one of the options:");
         System.out.println("1. Add cultural grouping to calendar ");
-        System.out.println("2. View Calendar(s)");
-        System.out.println("3. Delete grouping from Calendar ");
+        System.out.println("2. View Calendar");
+        System.out.println("3. Search Holidays by date");
         System.out.println("4. Quit");
+
     }
 
-    private void addGrouping() {
+    private void addNewGrouping() {
         System.out.println("Choose Cultural group that you'd like to add: ");
         printGroupings();
         String input = scanner.nextLine();
@@ -69,13 +95,9 @@ public class CalendarApp {
     }
 
     private void viewCalendar() {
-        printCalendar();
+        System.out.println(calendar.toPrint());
     }
 
-
-    private void printCalendar() {
-        System.out.println(calendar.toString());
-    }
 
     private void initializeChristianCalendar() {
         Grouping christianHolidays = new Grouping("Christian Holidays");
@@ -102,7 +124,7 @@ public class CalendarApp {
         christianHolidays.add(new Holiday("Thanksgiving (USA)", new Date(11, 24), "Thanksgiving Day bears its origin from the harvest festival. Generally, Americans give thanks to God for their autumn harvest and every other success they have achieved in the year."));
         christianHolidays.add(new Holiday("St. Andrew's Day", new Date(11, 30), "Saint Andrew's Day, also called the Feast of Saint Andrew or Andermas, is the feast day of Andrew the Apostle."));
         christianHolidays.add(new Holiday("Christmas Eve", new Date(12, 24), "Christmas Eve is the evening or entire day before Christmas Day, the festival commemorating the birth of Jesus."));
-        christianHolidays.add(new Holiday("Christmas", new Date(12, 35), "Christmas is an annual festival commemorating the birth of Jesus Christ."));
+        christianHolidays.add(new Holiday("Christmas", new Date(12, 25), "Christmas is an annual festival commemorating the birth of Jesus Christ."));
         christianHolidays.add(new Holiday("Watch Night", new Date(12, 31), "A watchnight service is a late-night Christian church service that provides the opportunity for Christians to review the year that has passed and make confession, and then prepare for the year ahead by praying and resolving."));
         calendar.add(christianHolidays);
     }
@@ -138,7 +160,7 @@ public class CalendarApp {
     }
 
     private void initializeJudaism() {
-        Grouping jew = new Grouping("Jew");
+        Grouping jewishHolidays = new Grouping("Jewish Holidays");
         Date tb = new Date(1, 16);
         Holiday tuBishvat = new Holiday("Tu Bishvat", tb, "The day is celebrated as an ecological awareness day, and trees are planted in celebration.");
         Date pu = new Date(3, 16);
@@ -177,25 +199,24 @@ public class CalendarApp {
         Date hk1 = new Date(12, 18);
         Date hk2 = new Date(12, 26);
         Holiday hanukkah = new Holiday("Hanukkah", hk1, hk2, "A Jewish festival commemorating the recovery of Jerusalem and subsequent rededication of the Second Temple at the beginning of the Maccabean revolt against the Seleucid Empire in the 2nd century BCE.");
-        jew.add(tuBishvat);
-        jew.add(tuBishvat);
-        jew.add(purim);
-        jew.add(yomHaatzmaut);
-        jew.add(yomHashoah);
-        jew.add(yomHazikaron);
-        jew.add(yomKippur);
-        jew.add(yomYerushalayim);
-        jew.add(passover);
-        jew.add(lagBaomer);
-        jew.add(shminiAtzeret);
-        jew.add(sukkot);
-        jew.add(simchatTorah);
-        jew.add(tishaBav);
-        jew.add(fastGedaliah);
-        jew.add(roshHashana);
-        jew.add(hanukkah);
-        jew.add(shavuot);
-        calendar.add(jew);
+        jewishHolidays.add(tuBishvat);
+        jewishHolidays.add(purim);
+        jewishHolidays.add(yomHaatzmaut);
+        jewishHolidays.add(yomHashoah);
+        jewishHolidays.add(yomHazikaron);
+        jewishHolidays.add(yomKippur);
+        jewishHolidays.add(yomYerushalayim);
+        jewishHolidays.add(passover);
+        jewishHolidays.add(lagBaomer);
+        jewishHolidays.add(shminiAtzeret);
+        jewishHolidays.add(sukkot);
+        jewishHolidays.add(simchatTorah);
+        jewishHolidays.add(tishaBav);
+        jewishHolidays.add(fastGedaliah);
+        jewishHolidays.add(roshHashana);
+        jewishHolidays.add(hanukkah);
+        jewishHolidays.add(shavuot);
+        calendar.add(jewishHolidays);
     }
 
     private void initializeIslamicCalendar() {
@@ -205,8 +226,8 @@ public class CalendarApp {
         islamicHolidays.add(new Holiday("Ramadan", new Date(4, 2), new Date(5, 2), " is the ninth month of the Islamic calendar,observed by Muslims worldwide as a month of fasting, prayer, reflection and community."));
         islamicHolidays.add(new Holiday("Laylat al Qadr", new Date(4, 28), "Lailat al Qadr is the night when the Quran was first sent down from Heaven to the world."));
         islamicHolidays.add(new Holiday("Eid al Fitr", new Date(5, 2), "Eid al Fitr marks the end of the month-long dawn-to-sunset fasting of Ramadan."));
-        islamicHolidays.add(new Holiday("Waqf al Arafa- Hajj", new Date(7, 8), "It is the holiest day in the Islamic calendar the second day of the Hajj pilgrimage.");
-        islamicHolidays.add(new Holiday("Eid al Adha", new Date(7, 9), "It honors the willingness of Ibrahim (Abraham) to sacrifice his son Ismael as an act of obedience to God's command.");
+        islamicHolidays.add(new Holiday("Waqf al Arafa- Hajj", new Date(7, 8), "It is the holiest day in the Islamic calendar the second day of the Hajj pilgrimage."));
+        islamicHolidays.add(new Holiday("Eid al Adha", new Date(7, 9), "It honors the willingness of Ibrahim (Abraham) to sacrifice his son Ismael as an act of obedience to God's command."));
         islamicHolidays.add(new Holiday("Hijra- Islamic New Year", new Date(7, 30), "Hijra is the day that marks the beginning of a new lunar Hijri year."));
         islamicHolidays.add(new Holiday("Day of Ashura", new Date(8, 8), "Ashura marks the day in which the Islamic prophet Moses was saved by God when He parted the Sea."));
         islamicHolidays.add(new Holiday("Milad un Nabi", new Date(10, 8), "Milad un Nabi celebrates the birth of the prophet Muhammad"));
