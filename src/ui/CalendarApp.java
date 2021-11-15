@@ -4,7 +4,7 @@ import main.model.Grouping;
 import main.model.Calendar;
 import main.model.Holiday;
 
-import java.util.Date;
+import main.model.Date;
 import java.util.Scanner;
 
 public class CalendarApp {
@@ -49,13 +49,13 @@ public class CalendarApp {
         if (input.equals("1")) {
             initializeChristianCalendar();
         } else if (input.equals("2")) {
-            initializeIslamic();
+            //initializeIslamic();
         } else if (input.equals("3")) {
             initializeJudaism();
         } else if (input.equals("4")) {
-            initializeHinduCalendar();
-        } else if (input.equals("5")) {
             initializeBuddhistCalendar();
+        } else if (input.equals("5")) {
+            initializeSikhCalendar();
         }
     }
 
@@ -63,8 +63,8 @@ public class CalendarApp {
         System.out.println("1. Christian Holidays");
         System.out.println("2. Islamic Holidays ");
         System.out.println("3. Jewish Holidays");
-        System.out.println("4. Hindu Holidays");
-        System.out.println("5. Buddhist Holidays");
+        System.out.println("4. Buddhist Holidays");
+        System.out.println("5. Sikh Holidays");
     }
 
     private void viewCalendar() {
@@ -136,5 +136,65 @@ public class CalendarApp {
         calendar.add(buddhistHolidays);
     }
 
+    private void initializeJudaism() {
+        Grouping jew = new Grouping("Jew");
+        Date tb = new Date(1,16);
+        Holiday tuBishvat = new Holiday("Tu Bishvat", tb, "The day is celebrated as an ecological awareness day, and trees are planted in celebration.");
+        Date pu = new Date(3, 16);
+        Holiday purim = new Holiday("Purim", pu, "This holiday commemorates the saving of the Jewish people from Haman, an Achaemenid Persian Empire official who was planning to kill all the Jews in the empire, as recounted in the Book of Esther.");
+        Date p1 = new Date(4, 15);
+        Date p2 = new Date(4, 23);
+        Holiday passover = new Holiday("Passover", p1, p2, "A major Jewish holiday that celebrates the exodus of the Israelites from slavery in Egypt.");
+        Date yhs = new Date(04,27 );
+        Holiday yomHashoah = new Holiday("Yom Hashoah", yhs, "Observed as Israel's day of commemoration for the approximately six million Jews murdered in the Holocaust by Nazi Germany and its collaborators");
+        Date yhz = new Date(05, 03);
+        Holiday yomHazikaron = new Holiday("Yom HaZikaron", yhz, "Traditionally dedicated to fallen soldiers, commemoration has also been extended to civilian victims of terrorism.");
+        Date yha = new Date(5, 5);
+        Holiday yomHaatzmaut = new Holiday("Yom HaAtzma'ut", yha, "This holiday commemorates the Israeli Declaration of Independence in 1948");
+        Date lb = new Date(5, 19);
+        Holiday lagBaomer = new Holiday("Lag BaOmer", lb, "Jewish religious holiday celebrated on the 33rd day of the Counting of the Omer, which occurs on the 18th day of the Hebrew month of Iyar.");
+        Date yy = new Date(5, 28);
+        Holiday yomYerushalayim = new Holiday("Yom Yerushalayim", yy, "An Israeli national holiday commemorating the reunification of Jerusalem and the establishment of Israeli control over the Old City in the aftermath of the June 1967 Six-Day War.");
+        Date sv = new Date(6, 6);
+        Holiday shavuot = new Holiday("Shavuot", sv, "Shavuot marks the wheat harvest in the Land of Israel. ");
+        Date tba = new Date(8, 17);
+        Holiday tishaBav = new Holiday("Tish'a B'av", tba, "An annual fast day in Judaism, on which a number of disasters in Jewish history occurred, primarily the destruction of both Solomon's Temple by the Neo-Babylonian Empire and the Second Temple by the Roman Empire in Jerusalem. ");
+        Date rh1 = new Date(9, 25);
+        Date rh2 = new Date(9, 27);
+        Holiday roshHashana = new Holiday("Rosh HaShana", rh1, rh2, "The Jewish New Year.");
+        Date fog = new Date(9, 28);
+        Holiday fastGedaliah = new Holiday("Fast of Gedaliah", fog, "A minor Jewish fast day from dawn until dusk to lament the assassination of Gedaliah, the righteous governor of what was the Kingdom of Judah. ");
+        Date yki = new Date(10, 4);
+        Holiday yomKippur = new Holiday("Yom Kippur", yki, "A day-long fast, confession, and intensive prayer, often spending most of the day in synagogue services.");
+        Date sk1 = new Date(10, 9);
+        Date sk2 = new Date(10, 16);
+        Holiday sukkot = new Holiday("Sukkot", sk1, sk2, "A Torah-commanded holiday celebrated for seven days from the 15th day of the month of Tishrei.");
+        Date sha = new Date(10, 16);
+        Holiday shminiAtzeret = new Holiday("Shmini Atzeret and Hosanah Rabbah", sha, "A holy day devoted to the spiritual aspects of the festival of Sukkot. ");
+        Date sto = new Date(10, 18);
+        Holiday simchatTorah = new Holiday("Simchat Torrah", sto, "A Jewish holiday that celebrates and marks the conclusion of the annual cycle of public Torah readings, and the beginning of a new cycle." );
+        Date hk1 = new Date(12, 18);
+        Date hk2 = new Date(12, 26);
+        Holiday hanukkah = new Holiday("Hanukkah", hk1, hk2, "A Jewish festival commemorating the recovery of Jerusalem and subsequent rededication of the Second Temple at the beginning of the Maccabean revolt against the Seleucid Empire in the 2nd century BCE.");
+        jew.add(tuBishvat);
+        jew.add(tuBishvat);
+        jew.add(purim);
+        jew.add(yomHaatzmaut);
+        jew.add(yomHashoah);
+        jew.add(yomHazikaron);
+        jew.add(yomKippur);
+        jew.add(yomYerushalayim);
+        jew.add(passover);
+        jew.add(lagBaomer);
+        jew.add(shminiAtzeret);
+        jew.add(sukkot);
+        jew.add(simchatTorah);
+        jew.add(tishaBav);
+        jew.add(fastGedaliah);
+        jew.add(roshHashana);
+        jew.add(hanukkah);
+        jew.add(shavuot);
+        calendar.add(jew);
+    }
 
 }
