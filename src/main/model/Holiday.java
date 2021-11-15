@@ -6,14 +6,14 @@ public class Holiday {
     private Date endDate;
     private String how;
 
-    public Holiday(String name, Date date, boolean dayOff, String how) {
+    public Holiday(String name, Date date, String how) {
         this.name = name;
         this.date = date;
         this.endDate = null;
         this.how = how;
     }
 
-    public Holiday(String name, Date date, Date endDate, boolean dayOff, String how) {
+    public Holiday(String name, Date date, Date endDate, String how) {
         this.name = name;
         this.date = date;
         this.endDate = endDate;
