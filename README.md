@@ -6,3 +6,6 @@ CulturalCalendar is a console based application designed for employers and manag
 In this way, we hope that workplaces can be more accepting and understanding throughout the year.
 
 Our hack allows the user to select which groupings of holidays and celebrations to include in their own CulturalCalendar. The user can then search to see if any holidays occur on a given day and view a listing of all events they should be aware of in the year! 
+
+
+This was a basic Java app that we coded in 10 hours for our first Hackathon.
