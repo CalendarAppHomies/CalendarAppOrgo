@@ -1,6 +1,4 @@
-# CalendarAppOrgo
-
-Cultural Holiday Calendar
+# Cultural Holiday Calendar
 
 
 CulturalCalendar was designed for employers and managers of
