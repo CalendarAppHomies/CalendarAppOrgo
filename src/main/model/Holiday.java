@@ -5,6 +5,7 @@ public class Holiday {
     private Date date;
     private Date endDate;
     private String how;
+    private String grouping = null;
 
     public Holiday(String name, Date date, String how) {
         this.name = name;
@@ -19,6 +20,11 @@ public class Holiday {
         this.endDate = endDate;
         this.how = how;
     }
+
+    public void addGrouping(String grouping) { this.grouping = grouping;
+    }
+
+
 
     public String getName() {
         return name;
@@ -47,7 +53,8 @@ public class Holiday {
             monthString = "0" + monthString;
         }
         if (endDate == null) {
-            return (monthString + "/" + dayString + ": " + this.name + "\n\t" + this.how);
+            return (monthString + "/" + dayString + ": " + this.name + " (" + this.grouping + ") " +
+                    "\n\t" + this.how);
         } else {
             String endDayString = String.valueOf(this.date.getDay());
             if (endDayString.length() == 1) {
@@ -57,7 +64,8 @@ public class Holiday {
             if (endMonthString.length() == 1) {
                 endMonthString = "0" + endMonthString;
             }
-            return (monthString + "/" + dayString + " - " + endMonthString + "/" + endDayString + ": " + this.name + "\n\t" + this.how);
+            return (monthString + "/" + dayString + " - " + endMonthString + "/" + endDayString + ": " + this.name + " (" + this.grouping + ") " +
+                     "\n\t" + this.how);
         }
     }
 
