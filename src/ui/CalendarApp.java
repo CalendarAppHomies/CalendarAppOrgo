@@ -5,6 +5,7 @@ import main.model.Calendar;
 import main.model.Holiday;
 
 import main.model.Date;
+
 import java.util.Scanner;
 
 public class CalendarApp {
@@ -49,7 +50,7 @@ public class CalendarApp {
         if (input.equals("1")) {
             initializeChristianCalendar();
         } else if (input.equals("2")) {
-            //initializeIslamic();
+            initializeIslamicCalendar();
         } else if (input.equals("3")) {
             initializeJudaism();
         } else if (input.equals("4")) {
@@ -78,7 +79,7 @@ public class CalendarApp {
 
     private void initializeChristianCalendar() {
         Grouping christianHolidays = new Grouping("Christian Holidays");
-        christianHolidays.add(new Holiday("Epiphany", new Date(1,6), "The Epiphany celebrates the baptism of Jesus by John the Baptist in the River Jordan."));
+        christianHolidays.add(new Holiday("Epiphany", new Date(1, 6), "The Epiphany celebrates the baptism of Jesus by John the Baptist in the River Jordan."));
         christianHolidays.add(new Holiday("Candlemas", new Date(2, 2), "Candlemas, also known as the Feast of the Presentation of Jesus Christ, is a Christian Holy Day commemorating the presentation of Jesus at the Temple."));
         christianHolidays.add(new Holiday("St. Valentine's Day", new Date(2, 14), "Valentine's Day is named after a Christian martyr Saint Valentine and is celebrated to commemorate the love between companions."));
         christianHolidays.add(new Holiday("Ash Wednesday", new Date(3, 2), "Ash Wednesday is a Christian holy day of prayer and fasting."));
@@ -138,14 +139,14 @@ public class CalendarApp {
 
     private void initializeJudaism() {
         Grouping jew = new Grouping("Jew");
-        Date tb = new Date(1,16);
+        Date tb = new Date(1, 16);
         Holiday tuBishvat = new Holiday("Tu Bishvat", tb, "The day is celebrated as an ecological awareness day, and trees are planted in celebration.");
         Date pu = new Date(3, 16);
         Holiday purim = new Holiday("Purim", pu, "This holiday commemorates the saving of the Jewish people from Haman, an Achaemenid Persian Empire official who was planning to kill all the Jews in the empire, as recounted in the Book of Esther.");
         Date p1 = new Date(4, 15);
         Date p2 = new Date(4, 23);
         Holiday passover = new Holiday("Passover", p1, p2, "A major Jewish holiday that celebrates the exodus of the Israelites from slavery in Egypt.");
-        Date yhs = new Date(04,27 );
+        Date yhs = new Date(04, 27);
         Holiday yomHashoah = new Holiday("Yom Hashoah", yhs, "Observed as Israel's day of commemoration for the approximately six million Jews murdered in the Holocaust by Nazi Germany and its collaborators");
         Date yhz = new Date(05, 03);
         Holiday yomHazikaron = new Holiday("Yom HaZikaron", yhz, "Traditionally dedicated to fallen soldiers, commemoration has also been extended to civilian victims of terrorism.");
@@ -172,7 +173,7 @@ public class CalendarApp {
         Date sha = new Date(10, 16);
         Holiday shminiAtzeret = new Holiday("Shmini Atzeret and Hosanah Rabbah", sha, "A holy day devoted to the spiritual aspects of the festival of Sukkot. ");
         Date sto = new Date(10, 18);
-        Holiday simchatTorah = new Holiday("Simchat Torrah", sto, "A Jewish holiday that celebrates and marks the conclusion of the annual cycle of public Torah readings, and the beginning of a new cycle." );
+        Holiday simchatTorah = new Holiday("Simchat Torrah", sto, "A Jewish holiday that celebrates and marks the conclusion of the annual cycle of public Torah readings, and the beginning of a new cycle.");
         Date hk1 = new Date(12, 18);
         Date hk2 = new Date(12, 26);
         Holiday hanukkah = new Holiday("Hanukkah", hk1, hk2, "A Jewish festival commemorating the recovery of Jerusalem and subsequent rededication of the Second Temple at the beginning of the Maccabean revolt against the Seleucid Empire in the 2nd century BCE.");
@@ -196,5 +197,21 @@ public class CalendarApp {
         jew.add(shavuot);
         calendar.add(jew);
     }
+
+    private void initializeIslamicCalendar() {
+        Grouping islamicHolidays = new Grouping("Islamic Holidays");
+        islamicHolidays.add(new Holiday("Lailat al Miraj", new Date(2, 28), "ailat al Miraj is a Muslim holiday that commemorates the Prophet Muhammad's nighttime journey from Mecca to the 'Farthest Mosque' in Jerusalem "));
+        islamicHolidays.add(new Holiday("Lailat al Bara'ah", new Date(3, 18), "It is regarded as a night when the fortunes of individuals for the coming year are decided and when Allah may forgive sinners."));
+        islamicHolidays.add(new Holiday("Ramadan", new Date(4, 2), new Date(5, 2), " is the ninth month of the Islamic calendar,observed by Muslims worldwide as a month of fasting, prayer, reflection and community."));
+        islamicHolidays.add(new Holiday("Laylat al Qadr", new Date(4, 28), "Lailat al Qadr is the night when the Quran was first sent down from Heaven to the world."));
+        islamicHolidays.add(new Holiday("Eid al Fitr", new Date(5, 2), "Eid al Fitr marks the end of the month-long dawn-to-sunset fasting of Ramadan."));
+        islamicHolidays.add(new Holiday("Waqf al Arafa- Hajj", new Date(7, 8), "It is the holiest day in the Islamic calendar the second day of the Hajj pilgrimage.");
+        islamicHolidays.add(new Holiday("Eid al Adha", new Date(7, 9), "It honors the willingness of Ibrahim (Abraham) to sacrifice his son Ismael as an act of obedience to God's command.");
+        islamicHolidays.add(new Holiday("Hijra- Islamic New Year", new Date(7, 30), "Hijra is the day that marks the beginning of a new lunar Hijri year."));
+        islamicHolidays.add(new Holiday("Day of Ashura", new Date(8, 8), "Ashura marks the day in which the Islamic prophet Moses was saved by God when He parted the Sea."));
+        islamicHolidays.add(new Holiday("Milad un Nabi", new Date(10, 8), "Milad un Nabi celebrates the birth of the prophet Muhammad"));
+        calendar.add(islamicHolidays);
+    }
+
 
 }
