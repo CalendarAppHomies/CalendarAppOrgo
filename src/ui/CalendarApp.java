@@ -3,8 +3,8 @@ package ui;
 import main.model.Grouping;
 import main.model.Calendar;
 import main.model.Holiday;
+import main.model.Date;
 
-import java.util.Date;
 import java.util.Scanner;
 
 public class CalendarApp {
@@ -71,16 +71,24 @@ public class CalendarApp {
         printCalendar();
     }
 
-
     private void printCalendar() {
         System.out.println(calendar.toString());
     }
 
     private void initializeIslamicCalendar() {
-        Grouping islamicHolidays = new Grouping("Lailat al Miraj");
-        islamicHolidays.add(new Holiday("", new Date(2, 28), "The Maghi fair is held to honour the memory of the forty Sikh warriors killed during the Battle of Muktsar in 1705."));
+        Grouping islamicHolidays = new Grouping("Islamic Holidays");
+        islamicHolidays.add(new Holiday("Lailat al Miraj", new Date(2, 28), "ailat al Miraj is a Muslim holiday that commemorates the Prophet Muhammad's nighttime journey from Mecca to the 'Farthest Mosque' in Jerusalem "));
+        islamicHolidays.add(new Holiday("Lailat al Bara'ah", new Date(3, 18), "It is regarded as a night when the fortunes of individuals for the coming year are decided and when Allah may forgive sinners."));
+        islamicHolidays.add(new Holiday("Ramadan", new Date(4, 2), new Date(5, 2), " is the ninth month of the Islamic calendar,observed by Muslims worldwide as a month of fasting, prayer, reflection and community."));
+        islamicHolidays.add(new Holiday("Laylat al Qadr", new Date(4, 28), "Lailat al Qadr is the night when the Quran was first sent down from Heaven to the world."));
+        islamicHolidays.add(new Holiday("Eid al Fitr", new Date(5, 2), "Eid al Fitr marks the end of the month-long dawn-to-sunset fasting of Ramadan."));
+        islamicHolidays.add(new Holiday("Waqf al Arafa- Hajj", new Date(7, 8), "It is the holiest day in the Islamic calendar the second day of the Hajj pilgrimage.");
+        islamicHolidays.add(new Holiday("Eid al Adha", new Date(7, 9), "It honors the willingness of Ibrahim (Abraham) to sacrifice his son Ismael as an act of obedience to God's command.");
+        islamicHolidays.add(new Holiday("Hijra- Islamic New Year", new Date(7, 30), "Hijra is the day that marks the beginning of a new lunar Hijri year."));
+        islamicHolidays.add(new Holiday("Day of Ashura", new Date(8, 8), "Ashura marks the day in which the Islamic prophet Moses was saved by God when He parted the Sea."));
+        islamicHolidays.add(new Holiday("Milad un Nabi", new Date(10, 8), "Milad un Nabi celebrates the birth of the prophet Muhammad"));
         calendar.add(islamicHolidays);
     }
 
-
 }
+
